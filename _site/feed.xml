@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-08-29T17:30:17-07:00</updated><id>/</id><title>Code n&#39; Stuff</title><subtitle>Patrick&#39;s journeys in software.</subtitle><entry><title>Explain Event Delegation - Javascript</title><link href="/explain-event-delegation-javascript/" rel="alternate" type="text/html" title="Explain Event Delegation - Javascript" /><published>2016-08-30T00:00:00-07:00</published><updated>2016-08-30T00:00:00-07:00</updated><id>/explain-event-delegation-javascript</id><content type="html" xml:base="/explain-event-delegation-javascript/">&lt;p&gt;I was working my way through the &lt;a href=&quot;/frontend-engineer-interview-questions/&quot;&gt;frontend engineer interview questions&lt;/a&gt; and came across this guy:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Explain event delegation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;My first instict is to be offended by how commanding the question was phrased, but I pushed it aside and decided to answer it. Since I thought it would be better as it’s own post, here we are.&lt;/p&gt;
+
+&lt;p&gt;So, first things first. Imagine event delegation never existed. We have a &lt;code class=&quot;highlighter-rouge&quot;&gt;ul&lt;/code&gt; with six &lt;code class=&quot;highlighter-rouge&quot;&gt;li&lt;/code&gt;s in it. Each one needs to alert you of its &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; when clicked on. This is how it could be done:&lt;/p&gt;
+
+&lt;p data-height=&quot;315&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;rrBaKP&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;patricktoerner&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/patricktoerner/pen/rrBaKP/&quot;&gt;rrBaKP&lt;/a&gt; by Patrick (&lt;a href=&quot;http://codepen.io/patricktoerner&quot;&gt;@patricktoerner&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;In the code above, an event listener is added to each li. Six event listeners in total. When one is clicked, the id is &lt;code class=&quot;highlighter-rouge&quot;&gt;alert&lt;/code&gt;ed at you.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;With event delegation, you instead add a listener to the parent. The event will “bubble” up from the li and you can deduce which element was clicked on by examining the event’s target attribute. See the codepen below.&lt;/p&gt;
+
+&lt;p data-height=&quot;315&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;WGZbaK&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;patricktoerner&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/patricktoerner/pen/WGZbaK/&quot;&gt;Basic event delegation example&lt;/a&gt; by Patrick (&lt;a href=&quot;http://codepen.io/patricktoerner&quot;&gt;@patricktoerner&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Event delegation is a beautiful thing, especially when you are dealing with something more complicated than the code above!&lt;/p&gt;
+
+&lt;p&gt;I hope that helped you understand event delegation!&lt;/p&gt;</content><summary>I was working my way through the frontend engineer interview questions and came across this guy:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{&quot;feature&quot;=&gt;&quot;abstract-3.jpg&quot;}" /></entry><entry><title>Frontend Engineer Interview Questions and Answers</title><link href="/frontend-engineer-interview-questions/" rel="alternate" type="text/html" title="Frontend Engineer Interview Questions and Answers" /><published>2016-08-29T00:00:00-07:00</published><updated>2016-08-29T00:00:00-07:00</updated><id>/frontend-engineer-interview-questions</id><content type="html" xml:base="/frontend-engineer-interview-questions/">&lt;p&gt;I found a big set of &lt;a href=&quot;https://github.com/h5bp/Front-end-Developer-Interview-Questions&quot;&gt;interview questions for frontend engineers&lt;/a&gt; and decided to answer them. Here we go:&lt;/p&gt;
+
+&lt;div class=&quot;notice&quot;&gt;
+  &lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#general-questions&quot;&gt;General Questions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#html-questions&quot;&gt;HTML Questions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#css-questions&quot;&gt;CSS Questions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#javascript-questions&quot;&gt;Javascript Questions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#testing-questions&quot;&gt;Testing Questions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#performance-questions&quot;&gt;Performance Questions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#network-questions&quot;&gt;Network Questions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#coding-questions&quot;&gt;Coding Questions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#fun-questions&quot;&gt;Fun Questions&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;general-questions&quot;&gt;General Questions&lt;/h1&gt;
+
+&lt;h3 id=&quot;what-did-you-learn-yesterdaythis-week&quot;&gt;1. What did you learn yesterday/this week?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Well, it’s monday morning, so what did I learn this weekend? This weekend I was working on an &lt;a href=&quot;https://angularjs.org/&quot;&gt;Angular&lt;/a&gt; app with a custom built &lt;a href=&quot;http://ckeditor.com/&quot;&gt;CKEditor&lt;/a&gt; plugin for a client. Most of it was pretty standard stuff. I suppose what I did the most Googling about what detecting copy/paste events and manipulating copied data across browsers. Due to the potential security vulnerabilities of allowing free access to the clipboard, each browser handles it a little bit differently. Not the most straight forward stuff!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;what-excites-or-interests-you-about-coding&quot;&gt;2. What excites or interests you about coding?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Oh man, so much! First, code gives me the power to multiply output tenfold, even hundredfold. Does a task repeat, or is it standardized, in any way? I can speed up how fast you can do that task. Second, it allows me to build what comes to my head. If I have an idea for something, a few hours later, I can have a basic prototype up and running. Third, it empowers me to solve problems, my own and the problems of others. I hate fumbling for keys to unlock my door (first world problems, am I right?) I can get a Raspberry Pi, a few sensors, and code a lock that unlocks itself if I whistle The Andy Griffith Show theme song. If that is empowerment, I don’t know what it. Note: I haven’t built that whistle lock yet, but it is on my todo list.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;html-questions&quot;&gt;HTML Questions&lt;/h1&gt;
+
+&lt;h3 id=&quot;what-does-a-doctype-do&quot;&gt;1. What does a doctype do?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It lets the browser know what version of HTML the code is written with. It tells the browser to render in standard mode, otherwise it will render in quirks mode. Basically it is for legacy reasons. In the end, you just gotta include it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;whats-the-difference-between-standards-mode-and-quirks-mode&quot;&gt;2. What’s the difference between standards mode and quirks mode?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ah, convenient time to ask. In standard mode, the browser renders the page just how you would expect. It renders it up to the specifications of the w3 web standards. In quirks mode, browsers render the page not up to those specifications. Developers used to account for all of the weird idiosyncrasies of different browsers, so quirks mode attempts to keep those pages working.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;css-questions&quot;&gt;CSS Questions&lt;/h1&gt;
+
+&lt;h3 id=&quot;what-is-the-difference-between-classes-and-ids-in-css&quot;&gt;1. What is the difference between classes and ID’s in CSS?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Classes are a little more general. They can be used on multiple elements, and one elements can have multiple classes. This allows you to &lt;strong&gt;consistently&lt;/strong&gt; style multiple elements. IDs, on the other hand, should represent exactly one element on the page. IDs take css precedence over classes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why&quot;&gt;3. What’s the difference between “resetting” and “normalizing” CSS? Which would you choose, and why?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dang it, I had to Google this one. Resetting, essentially undoes all browser default styles. It is then up to the user to style everything. Normalizing makes the default styles consistent across browsers. I do not see much of a use for “resetting” since “normalizing” became a possibility. Many default browser styles are just fine, why mess with success?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;javascript-questions&quot;&gt;Javascript Questions&lt;/h1&gt;
+
+&lt;h3 id=&quot;explain-event-delegation&quot;&gt;1. Explain event delegation&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Yes, sir! I decided to break this out into its own post: &lt;a href=&quot;/explain-event-delegation-javascript/&quot;&gt;Explain event delegation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;explain-how-this-works&quot;&gt;Explain how &lt;em&gt;this&lt;/em&gt; works&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;testing-questions&quot;&gt;Testing Questions&lt;/h1&gt;
+
+&lt;h1 id=&quot;performance-questions&quot;&gt;Performance Questions&lt;/h1&gt;
+
+&lt;h1 id=&quot;network-questions&quot;&gt;Network Questions&lt;/h1&gt;
+
+&lt;h1 id=&quot;coding-questions&quot;&gt;Coding Questions&lt;/h1&gt;
+
+&lt;h1 id=&quot;fun-questions&quot;&gt;Fun Questions&lt;/h1&gt;</content><summary>I found a big set of interview questions for frontend engineers and decided to answer them. Here we go:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{&quot;feature&quot;=&gt;&quot;abstract-2.jpg&quot;}" /></entry><entry><title>First!</title><link href="/first/" rel="alternate" type="text/html" title="First!" /><published>2016-08-28T00:00:00-07:00</published><updated>2016-08-28T00:00:00-07:00</updated><id>/first</id><content type="html" xml:base="/first/">&lt;p&gt;Well, well, well. What do we have here? A new blog? Yup!&lt;/p&gt;
+
+&lt;p&gt;This is my umpteenth blog, however, this one is different! This one is about code.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-type-of-code&quot;&gt;What type of code?&lt;/h3&gt;
+
+&lt;p&gt;I have no clue. Whatever strikes my fancy. Whatever interesting thing I learn. Something that needs sharing. And most likely, a stupid thing that took my hours to figure out.&lt;/p&gt;
+
+&lt;h3 id=&quot;thats-about-it&quot;&gt;That’s about it…&lt;/h3&gt;
+
+&lt;p&gt;Hopefully if you are reading this, there are more posts to read. Go read them! And if not, then stay tuned!&lt;/p&gt;</content><summary>Well, well, well. What do we have here? A new blog? Yup!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{&quot;feature&quot;=&gt;&quot;abstract-1.jpg&quot;}" /></entry></feed>
